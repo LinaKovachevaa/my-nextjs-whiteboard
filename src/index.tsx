@@ -41,15 +41,21 @@ import useDeleteLayers from "./hooks/useDeleteLayers";
 import MultiplayerGuides from "./components/MultiplayerGuides";
 import Path from "./components/Path";
 import ToolsBar from "./components/ToolsBar";
+// (other imports and utility functions)
 
 const MAX_LAYERS = 100;
 
-export default function Room() {
-  const roomId = useOverrideRoomId("nextjs-whiteboard-advanced");
+interface RoomProps {
+  roomId: string;
+}
+
+export default function Room({ roomId }: RoomProps) {
+  // remove the existing line of code for roomId, if you have one.
+  // const roomId = useOverrideRoomId("nextjs-whiteboard-advanced");
 
   return (
     <RoomProvider
-      id={roomId}
+      id={roomId} // Use the prop here
       initialPresence={{
         selection: [],
         cursor: null,
